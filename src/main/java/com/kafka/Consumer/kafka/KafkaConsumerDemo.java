@@ -36,22 +36,11 @@ public class KafkaConsumerDemo {
     public void fetchMessages(){
 
         KafkaConsumer myConsumer = new KafkaConsumer(props);
-/*        List<String> topics = new ArrayList();
-        topics.add("personsTopic");
-        myConsumer.subscribe(topics);*/
-
-
-
 
         List<TopicPartition> topicPartitions = new ArrayList();
         TopicPartition partition = new TopicPartition("personsTopic", 0);
         topicPartitions.add(partition);
         myConsumer.assign(topicPartitions);
-
-
-
-
-
 
         try{
             int i = 10;
@@ -70,7 +59,6 @@ public class KafkaConsumerDemo {
                     System.out.println("********************** " + record.value());
                     messageService.saveMessage(message);
                 }
-
             }
         } catch(Exception e){
             System.out.println(e.getMessage());
@@ -78,6 +66,5 @@ public class KafkaConsumerDemo {
 
             myConsumer.close();
         }
-
     }
 }
