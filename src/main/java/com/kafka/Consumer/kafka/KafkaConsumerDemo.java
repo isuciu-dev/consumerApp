@@ -43,7 +43,7 @@ public class KafkaConsumerDemo {
         myConsumer.assign(topicPartitions);
 
         try{
-            int i = 10;
+            int i = 1;
             while(i>0){
 
                 i--;
@@ -63,7 +63,6 @@ public class KafkaConsumerDemo {
         } catch(Exception e){
             System.out.println(e.getMessage());
         } finally {
-
             myConsumer.close();
         }
     }
